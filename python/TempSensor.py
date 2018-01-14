@@ -4,8 +4,7 @@
 import sys
 import Adafruit_DHT
 import math
-import json
-import requests
+
 
 
 
@@ -38,17 +37,6 @@ def get_dew_point_c(t_air_c, rel_humidity):
     alpha = ((A * t_air_c) / (B + t_air_c)) + math.log(rel_humidity/100.0)
     return (B * alpha) / (A - alpha)
 
-#set up variables
-CLIENT_ID = "p-jcoLKBynTLew"
-CLIENT_SECRET = "gko_LXELoV07ZBNUXrvWZfzE3aI"
-REDIRECT_URI = "http://localhost:65010/reddit_callback"
-
-
-#send the data to Dynamics CRM Server
-api_token = 'your_api_token'
-api_url_base = 'https://api.digitalocean.com/v2/'
-headers = {'Content-Type': 'application/json',
-           'Authorization': 'Bearer {0}'.format(api_token)}
 
 while True:
 
